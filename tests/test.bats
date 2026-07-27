@@ -51,7 +51,7 @@ health_checks() {
   run ddev exec ls -la $HOME/tmp/xxx/
 
   # throw an error to show logs
-  run asdfa
+  false
 
   # You can check for specific information in headers:
   # run curl -sfI https://${PROJNAME}.ddev.site
