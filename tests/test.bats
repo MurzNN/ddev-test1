@@ -43,12 +43,18 @@ health_checks() {
   run echo "Permission checks"
   
   run ls -la $HOME
+  echo "The raw command output was: $output" >&2
   run ls -la $HOME/tmp
+  echo "The raw command output was: $output" >&2
   run ls -la $HOME/tmp/xxx/
+  echo "The raw command output was: $output" >&2
 
   run ddev exec ls -la $HOME
+  echo "The raw command output was: $output" >&2
   run ddev exec ls -la $HOME/tmp
+  echo "The raw command output was: $output" >&2
   run ddev exec ls -la $HOME/tmp/xxx/
+  echo "The raw command output was: $output" >&2
 
   # You can check for specific information in headers:
   # run curl -sfI https://${PROJNAME}.ddev.site
