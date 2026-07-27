@@ -44,4 +44,5 @@ jobs:
           addon_repository: ${{ env.GITHUB_REPOSITORY }}
           addon_ref: ${{ env.GITHUB_REF }}
       - name: Debug test
-        run: bats tests --verbose-run
+        run: bats tests --verbose-run --show-output-of-passing-tests
+
