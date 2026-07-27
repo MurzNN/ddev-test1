@@ -50,6 +50,9 @@ health_checks() {
   run ddev exec ls -la $HOME/tmp
   run ddev exec ls -la $HOME/tmp/xxx/
 
+  # throw an error to show logs
+  run asdfa
+
   # You can check for specific information in headers:
   # run curl -sfI https://${PROJNAME}.ddev.site
   # assert_output --partial "HTTP/2 200"
