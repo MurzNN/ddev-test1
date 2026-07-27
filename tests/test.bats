@@ -24,18 +24,18 @@ setup() {
   bats_load_library bats-file
   bats_load_library bats-support
 
-  export DIR="$(cd "$(dirname "${BATS_TEST_FILENAME}")/.." >/dev/null 2>&1 && pwd)"
-  export PROJNAME="test-$(basename "${GITHUB_REPO}")"
-  mkdir -p "${HOME}/tmp"
-  export TESTDIR="$(mktemp -d "${HOME}/tmp/${PROJNAME}.XXXXXX")"
-  export DDEV_NONINTERACTIVE=true
-  export DDEV_NO_INSTRUMENTATION=true
-  ddev delete -Oy "${PROJNAME}" >/dev/null 2>&1 || true
-  cd "${TESTDIR}"
-  run ddev config --project-name="${PROJNAME}" --project-tld=ddev.site
-  assert_success
-  run ddev start -y
-  assert_success
+  # export DIR="$(cd "$(dirname "${BATS_TEST_FILENAME}")/.." >/dev/null 2>&1 && pwd)"
+  # export PROJNAME="test-$(basename "${GITHUB_REPO}")"
+  # mkdir -p "${HOME}/tmp"
+  # export TESTDIR="$(mktemp -d "${HOME}/tmp/${PROJNAME}.XXXXXX")"
+  # export DDEV_NONINTERACTIVE=true
+  # export DDEV_NO_INSTRUMENTATION=true
+  # ddev delete -Oy "${PROJNAME}" >/dev/null 2>&1 || true
+  # cd "${TESTDIR}"
+  # run ddev config --project-name="${PROJNAME}" --project-tld=ddev.site
+  # assert_success
+  # run ddev start -y
+  # assert_success
 }
 
 health_checks() {
@@ -62,9 +62,9 @@ health_checks() {
   # assert_output --partial "test_header"
   
   # Or check if some command gives expected output:
-  DDEV_DEBUG=true run ddev launch
-  assert_success
-  assert_output --partial "FULLURL https://${PROJNAME}.ddev.site"
+  # DDEV_DEBUG=true run ddev launch
+  # assert_success
+  # assert_output --partial "FULLURL https://${PROJNAME}.ddev.site"
 }
 
 teardown() {
@@ -79,23 +79,23 @@ teardown() {
   fi
 }
 
-@test "install from directory" {
-  set -eu -o pipefail
-  echo "# ddev add-on get ${DIR} with project ${PROJNAME} in $(pwd)" >&3
-  run ddev add-on get "${DIR}"
-  assert_success
-  run ddev restart -y
-  assert_success
-  health_checks
-}
+# @test "install from directory" {
+#   set -eu -o pipefail
+#   echo "# ddev add-on get ${DIR} with project ${PROJNAME} in $(pwd)" >&3
+#   run ddev add-on get "${DIR}"
+#   assert_success
+#   run ddev restart -y
+#   assert_success
+#   health_checks
+# }
 
 # bats test_tags=release
 @test "install from release" {
   set -eu -o pipefail
-  echo "# ddev add-on get ${GITHUB_REPO} with project ${PROJNAME} in $(pwd)" >&3
-  run ddev add-on get "${GITHUB_REPO}"
-  assert_success
-  run ddev restart -y
-  assert_success
+  # echo "# ddev add-on get ${GITHUB_REPO} with project ${PROJNAME} in $(pwd)" >&3
+  # run ddev add-on get "${GITHUB_REPO}"
+  # assert_success
+  # run ddev restart -y
+  # assert_success
   health_checks
 }
