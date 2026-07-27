@@ -41,9 +41,11 @@ setup() {
 health_checks() {
   # Do something useful here that verifies the add-on
   run echo "Permission checks"
+  
   run ls -la $HOME
   run ls -la $HOME/tmp
   run ls -la $HOME/tmp/xxx/
+
   run ddev exec ls -la $HOME
   run ddev exec ls -la $HOME/tmp
   run ddev exec ls -la $HOME/tmp/xxx/
